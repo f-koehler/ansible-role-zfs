@@ -1,5 +1,7 @@
 # Ansible Role: archzfs
 
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/f-koehler/ansible-role-zfs/main.svg)](https://results.pre-commit.ci/latest/github/f-koehler/ansible-role-zfs/main)
+
 Installs `zfs-utils` and kernel modules on Arch Linux.
 
 ## Requirements
