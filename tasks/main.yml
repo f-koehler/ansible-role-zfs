@@ -13,7 +13,7 @@
     section: archzfs
     option: Server
     value: "https://archzfs.com/$repo/$arch"
-    exclusive: no
+    exclusive: false
     state: present
     mode: "0644"
     owner: root
@@ -51,7 +51,7 @@
   ansible.builtin.systemd:
     name: "{{ systemd_unit }}"
     state: started
-    enabled: yes
+    enabled: true
   loop:
     - zfs-import-cache.service
     - zfs-import-cache.target
