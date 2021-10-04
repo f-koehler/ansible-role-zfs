@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Fabian Köhler
+  description: ZFS on Arch Linux
+  license: license (MIT)
+  min_ansible_version: 2.5
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - storage
+    - filesystem
+dependencies: []
