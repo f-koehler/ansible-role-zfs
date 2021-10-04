@@ -4,7 +4,7 @@ on:
   pull_request:
   workflow_dispatch:
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,3 +23,6 @@ jobs:
       - name: Run ansible-lint
         run: |
           ansible-lint -v --show-relpat
+      - name: Run yamllint
+        run: |
+          yamllint .
