@@ -20,15 +20,11 @@
     group: root
   register: pacman_conf
 
-- name: Update pacman cache
-  community.general.pacman:
-    update_cache: yes
-  when: pacman_conf.changed
-
 - name: Install zfs-utils
   community.general.pacman:
     name: zfs-utils
     state: present
+    update_cache: "{{ pacman_conf.changed }}"
 
 - name: Install zfs modules
   community.general.pacman:
