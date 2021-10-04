@@ -1,0 +1,59 @@
+---
+# tasks file for ansible-role-archzfs
+
+- name: Import archzfs GPG key
+  community.general.pacman_key:
+    id: DDF7DB817396A49B2A2723F7403BD972F75D9D76
+    keyserver: https://keyserver.ubuntu.com/
+    state: present
+
+- name: Add archzfs repository
+  community.general.ini_file:
+    path: /etc/pacman.conf
+    section: archzfs
+    option: Server
+    value: "https://archzfs.com/$repo/$arch"
+    exclusive: false
+    state: present
+    mode: "0644"
+    owner: root
+    group: root
+  register: pacman_conf
+
+- name: Install zfs-utils
+  community.general.pacman:
+    name: zfs-utils
+    state: present
+    update_cache: "{{ pacman_conf.changed }}"
+
+- name: Install zfs modules
+  community.general.pacman:
+    name: "zfs-{{ archzfs_kernel }}"
+    state: present
+  loop: "{{ archzfs_kernels }}"
+  loop_control:
+    loop_var: archzfs_kernel
+
+- name: Copy module load config
+  community.builtin.copy:
+    src: zfs.conf
+    dest: /etc/modules-load.d/zfs.conf
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Load zfs module
+  community.general.modprobe:
+    name: zfs
+    state: present
+
+- name: Enable systemd units
+  ansible.builtin.systemd:
+    name: "{{ systemd_unit }}"
+    state: started
+    enabled: true
+  loop:
+    - zfs-import-cache.service
+    - zfs-import-cache.target
+    - zfs-mount.service
+    - zfs.target

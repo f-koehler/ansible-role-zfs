@@ -26,3 +26,9 @@ jobs:
       - name: Run yamllint
         run: |
           yamllint .
+  # test:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       include:
+  #         - distro: Arch

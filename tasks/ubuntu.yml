@@ -1,0 +1,3 @@
+- name: Install zfs
+  ansible.builtin.apt:
+    name: zfsutils-linux
