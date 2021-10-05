@@ -1,6 +1,3 @@
----
-# tasks file for ansible-role-archzfs
-
 - name: Import archzfs GPG key
   community.general.pacman_key:
     id: DDF7DB817396A49B2A2723F7403BD972F75D9D76
