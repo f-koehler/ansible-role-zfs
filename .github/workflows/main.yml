@@ -22,7 +22,7 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Run ansible-lint
         run: |
-          ansible-lint -v --show-relpat
+          ansible-lint -v --show-relpath
       - name: Run yamllint
         run: |
           yamllint .
