@@ -12,4 +12,4 @@
   tasks:
     - name: "Include zfs"
       include_role:
-        name: "zfs"
+        name: "fkoehler.zfs"
