@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: zfs
   author: fkoehler
   description: ZFS on Arch Linux
   license: license (MIT)
