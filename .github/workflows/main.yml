@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: geerlingguy/docker-ubuntu1804-ansible:latest
+          - image: fabiankoehler/ubuntu1804-ansible:latest
           # - image: fabiankoehler/archlinux-ansible:latest
     steps:
       - uses: actions/checkout@v2
