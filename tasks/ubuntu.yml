@@ -4,7 +4,7 @@
     state: present
 
 - name: Copy module load config.
-  community.builtin.copy:
+  ansible.builtin.copy:
     src: zfs.conf
     dest: /etc/modules-load.d/zfs.conf
     owner: root
