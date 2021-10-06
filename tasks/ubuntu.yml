@@ -1,4 +1,17 @@
-- name: Install zfs
+- name: Install zfs.
   ansible.builtin.apt:
     name: zfsutils-linux
+    state: present
+
+- name: Copy module load config.
+  community.builtin.copy:
+    src: zfs.conf
+    dest: /etc/modules-load.d/zfs.conf
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Load zfs module.
+  community.general.modprobe:
+    name: zfs
     state: present
