@@ -1,7 +1,12 @@
 - name: Install zfs.
   ansible.builtin.apt:
-    name: zfsutils-linux
+    name: "{{ package }}"
     state: present
+  loop:
+    - zfsutils-linux
+    - zfs-dkms
+  loop_control:
+    loop_var: package
 
 - name: Copy module load config.
   ansible.builtin.copy:
