@@ -26,6 +26,6 @@
       loop_control:
         loop_var: disk
     - name: Create zpool.
-      ansible.builtin.command: "zpool create -f -m /testzpool raidz {{ disks | join(' ')}}"
+      ansible.builtin.command: "zpool create -f -m /testzpool raidz {{ disks | join(' ') }}"
       args:
         creates: /testzpool
