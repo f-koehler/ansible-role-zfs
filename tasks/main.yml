@@ -1,4 +1,4 @@
-- name: Include tasks
+- name: Include tasks.
   ansible.builtin.include_tasks:
     file: "{{ tasks }}"
   with_first_found:
