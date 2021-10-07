@@ -1,5 +1,5 @@
 ansible-lint==5.2.0
 ansible==4.6.0
 docker==5.0.2
-molecule[docker]==3.5.1
+molecule[docker]==3.5.2
 yamllint==1.26.3
