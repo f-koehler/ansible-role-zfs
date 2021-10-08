@@ -1,0 +1,31 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    disks:
+      - disk1.img
+      - disk2.img
+      - disk3.img
+  become: true
+  pre_tasks:
+    - name: Update apt cache.
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 600
+      when: ansible_os_family == "Debian"
+      changed_when: false
+  tasks:
+    - name: Include zfs role.
+      ansible.builtin.include_role:
+        name: "fkoehler.zfs"
+    - name: Create test files for zfs.
+      ansible.builtin.command: "truncate --size 1G {{ disk }}"
+      args:
+        creates: "{{ disk }}"
+      loop: "{{ disks }}"
+      loop_control:
+        loop_var: disk
+    - name: Create zpool.
+      ansible.builtin.command: "zpool create -f -m /testzpool raidz {{ disks | join(' ') }}"
+      args:
+        creates: /testzpool

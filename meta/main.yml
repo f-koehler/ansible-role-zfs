@@ -1,5 +1,6 @@
 galaxy_info:
-  author: Fabian Köhler
+  role_name: zfs
+  author: fkoehler
   description: ZFS on Arch Linux
   license: license (MIT)
   min_ansible_version: 2.5
