@@ -2,6 +2,9 @@
 
 [![CI](https://github.com/f-koehler/ansible-role-zfs/workflows/CI/badge.svg?event=push)](https://github.com/f-koehler/ansible-role-zfs/actions?query=workflow%3ACI)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/f-koehler/ansible-role-zfs/main.svg)](https://results.pre-commit.ci/latest/github/f-koehler/ansible-role-zfs/main)
+[![Ansible Role](https://img.shields.io/ansible/role/56443)](https://galaxy.ansible.com/f_koehler/zfs)
+[![Ansible Quality Score](https://img.shields.io/ansible/quality/56443)](https://galaxy.ansible.com/f_koehler/zfs)
+[![Ansible Role](https://img.shields.io/ansible/role/d/56443)](https://galaxy.ansible.com/f_koehler/zfs)
 
 Installs `zfs-utils` and kernel modules on Arch Linux.
 
