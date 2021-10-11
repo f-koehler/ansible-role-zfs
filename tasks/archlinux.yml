@@ -1,7 +1,7 @@
 - name: Import archzfs GPG key.
   community.general.pacman_key:
     id: DDF7DB817396A49B2A2723F7403BD972F75D9D76
-    keyserver: https://keyserver.ubuntu.com/
+    keyserver: hkps://keyserver.ubuntu.com
     state: present
 
 - name: Add archzfs repository.
